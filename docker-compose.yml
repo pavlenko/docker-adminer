@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+
+  adminer:
+    image: adminer:fastcgi
+    container_name: ${COMPOSE_PROJECT_NAME}-app
+    restart: always
+    networks:
+      - adminer-proxy
+
+networks:
+  adminer-proxy:
+    name: adminer-proxy

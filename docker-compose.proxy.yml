@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+
+  adminer:
+    environment:
+      - VIRTUAL_PORT=9000 #<-- use 9000 here for behind proxy running
+      - VIRTUAL_HOST=adminer.example.com
+
+networks:
+  default:
