@@ -2,10 +2,16 @@ version: '3.8'
 
 services:
 
-  adminer:
+  nginx:
     environment:
-      - VIRTUAL_PORT=9000 #<-- use 9000 here for behind proxy running
+      - VIRTUAL_PORT=80
       - VIRTUAL_HOST=adminer.example.com
+    networks:
+      - adminer-proxy
+      - nginx-proxy
 
 networks:
-  default:
+  adminer-proxy:
+  nginx-proxy:
+    external:
+      name: nginx-proxy

@@ -2,9 +2,6 @@ version: '3.8'
 
 services:
 
-  adminer:
+  nginx:
     ports:
-      - "8080:8080"
-
-networks:
-  default:
+      - "8080:80"

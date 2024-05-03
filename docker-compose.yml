@@ -2,6 +2,20 @@ version: '3.8'
 
 services:
 
+  nginx: # web
+    image: nginx:stable-alpine
+    container_name: ${COMPOSE_PROJECT_NAME}-www
+    restart: unless-stopped
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./nginx/logs:/var/log/nginx
+    depends_on:
+      - adminer
+    networks:
+      - adminer-proxy
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
   adminer:
     image: adminer:fastcgi
     container_name: ${COMPOSE_PROJECT_NAME}-app
@@ -11,4 +25,3 @@ services:
 
 networks:
   adminer-proxy:
-    name: adminer-proxy

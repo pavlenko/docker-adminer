@@ -1,4 +1,7 @@
 .idea/
 
+nginx/logs/*
+!nginx/logs/.gitkeep
+
 docker-compose.override.yml
 .env
