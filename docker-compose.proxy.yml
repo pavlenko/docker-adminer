@@ -12,6 +12,7 @@ services:
 
 networks:
   adminer-proxy:
+    name: adminer-proxy
   nginx-proxy:
     external:
       name: nginx-proxy
